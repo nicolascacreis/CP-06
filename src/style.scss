@@ -1,0 +1,63 @@
+@mixin box-style($padding, $border-radius) {
+    padding: $padding;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+$book-colors: (
+    "book-list": #5179a0
+);
+
+$font-stack: 'Arial', sans-serif;
+
+
+body {
+    font-family: $font-stack;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.about {
+    padding: 20px;
+    text-align: center
+}
+
+.books {
+    justify-content: space-around;
+    text-align: center;
+    padding: 20px;
+
+    .book-list {
+        align-items: center;
+        text-align: center;
+        background-color: white;
+        @include box-style(20px, 10px);
+        
+        h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+    }
+}
+
+.contact {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+@each $book-id, $color in $book-colors {
+    ##{$book-id} {
+        background-color: $color;
+    }
+}
